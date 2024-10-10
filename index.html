@@ -1,0 +1,349 @@
+<style>
+  .funding-inquiry-page {
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    max-width: 480px;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto;
+    font:
+      400 12px "Noto Sans KR",
+      sans-serif;
+    border: 1px solid #fff;
+  }
+
+  .header-image {
+    aspect-ratio: 9.35;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+  }
+
+  .logo {
+    aspect-ratio: 2.12;
+    object-fit: contain;
+    object-position: center;
+    width: 109px;
+    margin-top: 15px;
+    max-width: 100%;
+  }
+
+  .content-wrapper {
+    display: flex;
+    margin-top: 15px;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .main-content {
+    align-self: center;
+    display: flex;
+    width: 80%;
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-title {
+    color: #000;
+    text-align: center;
+    align-self: center;
+    font:
+      24px "Noto Sans KR",
+      sans-serif;
+  }
+
+  .highlight {
+    color: #ff8e8d;
+    font-weight: 600;
+  }
+
+  .funding-item {
+    border-radius: 15px;
+    background-color: #fbeee8;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    margin-top: 27px;
+    min-height: 60px;
+    width: calc(100% - 20px); /* 패딩을 고려한 너비 */
+    flex-direction: column;
+    text-align: center;
+    padding: 27px 10px;
+  }
+
+  .funding-progress {
+    color: #ff8e8d;
+    text-align: right;
+  }
+
+  .product-info {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    color: #000;
+    text-align: center;
+    justify-content: space-between;
+  }
+
+  .product-image {
+    aspect-ratio: 1.02;
+    object-fit: contain;
+    object-position: center;
+    width: 43px;
+    border-radius: 20px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .product-details {
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .product-graph {
+    aspect-ratio: 2.84;
+    object-fit: contain;
+    object-position: center;
+    width: 122px;
+    border-radius: 8px;
+    align-self: flex-end;
+    z-index: 10;
+    margin-top: -11px;
+    min-height: 10px;
+    max-width: 100%;
+  }
+
+  .add-funding {
+    border-radius: 15px;
+    background-color: #f4f1f1;
+    display: flex;
+    margin-top: 27px;
+    max-height: 50px;
+    width: calc(100% - 26px); /* 패딩을 고려한 너비 */
+    color: #111;
+    text-align: center;
+    justify-content: center;
+    padding: 20px 13px;
+  }
+
+  .add-funding-content {
+    display: flex;
+    width: 100%;
+    height: 50px; /* 부모 컨테이너의 높이 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    gap: 38px;
+  }
+
+  .add-icon {
+    aspect-ratio: 0.67;
+    height: auto; /* 이미지의 원본 비율 유지 */
+    width: 32px;
+    margin-bottom: 15px; /* 마진을 조정하여 필요에 따라 위치 조정 */
+  }
+
+  .add-text {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .arrow-icon {
+    aspect-ratio: 1.06;
+    object-fit: contain;
+    object-position: center;
+    width: 17px;
+  }
+
+  .footer-image {
+    aspect-ratio: 1.25;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+  }
+
+  .bottom-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .bottom-nav {
+    z-index: 10;
+    display: flex;
+    margin-top: -66px;
+    align-items: center;
+    width: calc(100% - 40px); /* 여백을 포함하여 너비 조정 */
+    gap: 10px;
+    color: #fff;
+    text-align: center;
+    justify-content: space-between;
+    margin: 0 20px; /* 양옆 여백을 20px로 설정 */
+  }
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 16px;
+  }
+
+  .nav-text {
+    margin-top: 4px;
+    font-size: 12px;
+  }
+
+  .nav-button {
+    background-color: #fff;
+    border: 0px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 72px;
+    height: 66px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+<!doctype html>
+<html lang="“en”">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Final</title>
+  </head>
+  <body>
+    <section class="funding-inquiry-page">
+      <header>
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/664538bb21994713a3ac8ca81277e223c9b55296dabfc967cefed90bcb69ffc8?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+          alt="Header background"
+          class="header-image" />
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/f80f2055ef3a5d6de0559117a497592039c6a63d33a9842821b6875ee47b4e69?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+          alt="Logo"
+          class="logo" />
+      </header>
+
+      <main class="content-wrapper">
+        <div class="main-content">
+          <h1 class="main-title">
+            우리의 새로운 시작을,<br />
+            <span class="highlight">함께</span> 밝혀주세요
+          </h1>
+
+          <article class="funding-item">
+            <div class="funding-progress">65%</div>
+            <div class="product-info">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/1d628fce7f40fc572785fdbc3efdc1c0433095ecab5fc020d10bb139284e5127?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+                alt="LG 비스포크 냉장고"
+                class="product-image" />
+              <div class="product-details">
+                <span class="highlight">LG전자</span> 비스포크<br />RF90DG90124W
+              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/5e9f2d8d8420ac9a3a2bf2dc9098081edf6a98c3b6b8c78802aebb288c470f1c?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+                alt="Funding progress graph"
+                class="product-graph" />
+            </div>
+          </article>
+
+          <article class="funding-item">
+            <div class="funding-progress">65%</div>
+            <div class="product-info">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/1d628fce7f40fc572785fdbc3efdc1c0433095ecab5fc020d10bb139284e5127?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+                alt="LG 비스포크 냉장고"
+                class="product-image" />
+              <div class="product-details">
+                <span class="highlight">LG전자</span> 비스포크<br />RF90DG90124W
+              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/5e9f2d8d8420ac9a3a2bf2dc9098081edf6a98c3b6b8c78802aebb288c470f1c?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+                alt="Funding progress graph"
+                class="product-graph" />
+            </div>
+          </article>
+
+          <div class="add-funding">
+            <div class="add-funding-content">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/d7a97fad23f9dfe11bb6362f8014d7fb47340626292b72fec8ff1c62d603adb7?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+                alt=""
+                class="add-icon" />
+              <p class="add-text">펀딩 상품을 더 추가해볼까요?</p>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/05428506fe3faed549d85b23039dbe6dd74f6f1ad75fe397ac5696e401381407?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+                alt=""
+                class="arrow-icon" />
+            </div>
+          </div>
+        </div>
+
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/d2f6c3a6ea37749fb2e8b77bf980a1edb5b14f4fad898fd5d280049b971ebb90?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+          alt="Footer decoration"
+          class="footer-image" />
+      </main>
+
+      <nav class="bottom-container">
+        <nav class="bottom-nav">
+          <div class="nav-item">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e21e8d66ed688c3fac00cd41b94fd81e660a8a82b409afb138b9851b3c30bfb8?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+              alt=""
+              class="nav-icon" />
+            <span class="nav-text">펀딩 조회</span>
+          </div>
+          <div class="nav-item">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/78972447274b4c1a155f42276caad399a36a43d978b69ffc1e98e95bee8d591c?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+              alt=""
+              class="nav-icon" />
+            <span class="nav-text">송금 조회</span>
+          </div>
+          <button class="nav-button" aria-label="Add new item">
+            <img
+              src="https://velog.velcdn.com/images/kkaerrung/post/480ceb63-53a9-41b9-b7c7-e63c76cec526/image.png"
+              alt="홈 화면" />
+          </button>
+          <div class="nav-item">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/b2161d1276c9d7366314c1f461feddc32c0573f2efee342c4a23631d711ec626?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+              alt=""
+              class="nav-icon" />
+            <span class="nav-text">청첩장</span>
+          </div>
+          <div class="nav-item">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ad53375fe0529682966c746c7033c952032a259cf3a38d1389e2325d85a8bce?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+              alt=""
+              class="nav-icon" />
+            <span class="nav-text">마이페이지</span>
+          </div>
+        </nav>
+      </nav>
+    </section>
+  </body>
+</html>
