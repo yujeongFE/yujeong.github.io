@@ -1,0 +1,434 @@
+<style>
+  .wedding-invitation-page {
+    background-image: url("https://velog.velcdn.com/images/kkaerrung/post/6bd1fa45-6fd2-47b5-b08b-032d143b7f56/image.png");
+    background-size: cover; /* 이미지가 화면 전체를 덮도록 설정 */
+    background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
+    background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    max-width: 480px;
+    width: 100%;
+    padding-bottom: 9px;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .hero-image {
+    aspect-ratio: 8.55;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .content-wrapper {
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    margin-top: -44px;
+    min-height: 815px;
+    width: 100%;
+    align-items: start;
+    gap: 10px;
+    justify-content: start;
+  }
+
+  .invitation-photo-container {
+  }
+  .invitation-photo {
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    min-width: 240px;
+    align-items: start;
+    gap: -60px;
+    justify-content: center;
+    left: 18px;
+    bottom: 65px;
+  }
+
+  .invitation-photo2 {
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    min-width: 240px;
+    align-items: center;
+    gap: 50px;
+    justify-content: center;
+    left: 110px;
+    bottom: 20px;
+  }
+
+  .invitation-photo3 {
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    min-width: 240px;
+    align-items: end;
+    gap: 50px;
+    justify-content: center;
+    left: 220px;
+    bottom: -10px;
+  }
+
+  .photo-main {
+    aspect-ratio: 0.65;
+    object-fit: cover; /* Ensures the image fills the container without stretching */
+    object-position: center;
+    width: 166px; /* Controls the width */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 15px; /* Rounds the corners */
+  }
+
+  .photo-secondary {
+    border-radius: 15px;
+    display: flex;
+    width: 130px; /* Custom width */
+    height: 254px; /* Custom height */
+    object-fit: cover; /* Ensures the image covers the entire area */
+    object-position: center;
+  }
+
+  .photo-third {
+    aspect-ratio: 0.65; /* Similar aspect ratio to photo-main */
+    object-fit: cover; /* Ensures the image fills the container */
+    object-position: center;
+    width: 166px;
+    height: auto; /* Keeps the aspect ratio */
+    border-radius: 15px;
+  }
+
+  .invitation-text {
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    min-width: 240px;
+    flex-direction: column;
+    align-items: center;
+    font-family:
+      Noto Sans KR,
+      sans-serif;
+    text-align: center;
+    justify-content: start;
+    right: 27px;
+    top: 123px;
+    width: 320px;
+    left: 73px;
+  }
+
+  .invitation-title {
+    color: #4c4a4b;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .invitation-cta {
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    margin-top: 22px;
+    min-height: 66px;
+    max-width: 100%;
+    width: 310px;
+    align-items: center;
+    gap: 40px 70px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    justify-content: start;
+    padding: 9px 15px;
+  }
+
+  .cta-text {
+    align-self: stretch;
+    margin: auto 0;
+  }
+
+  .cta-icon {
+    aspect-ratio: 0.5;
+    object-fit: contain;
+    object-position: center;
+    width: 15px;
+    border-radius: 15px;
+    align-self: stretch;
+    margin: auto 0;
+  }
+
+  .navigation-wrapper {
+    align-self: end;
+    z-index: 10;
+    display: flex;
+    width: 242px;
+    max-width: 100%;
+    padding-top: 24px;
+    flex-direction: column;
+    color: #4c4a4b;
+    white-space: nowrap;
+    text-align: center;
+    margin: -67px 32px 0 0;
+    font:
+      400 12px Noto Sans KR,
+      sans-serif;
+  }
+
+  .nav-icon-1 {
+    aspect-ratio: 1.55;
+    object-fit: contain;
+    object-position: center;
+    width: 17px;
+    align-self: center;
+    z-index: 10;
+    margin: 24px 0 0 40px;
+  }
+
+  .nav-icon-2 {
+    aspect-ratio: 1.06;
+    object-fit: contain;
+    object-position: center;
+    width: 17px;
+    margin-top: -11px;
+  }
+
+  .nav-icon-3 {
+    aspect-ratio: 1.06;
+    object-fit: contain;
+    object-position: center;
+    width: 17px;
+    align-self: end;
+    z-index: 10;
+    margin-top: -16px;
+  }
+
+  .home-button {
+    background-color: #fbeee8;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    display: flex;
+    width: 72px;
+    flex-direction: column;
+    align-items: center;
+    margin: -40px 0 0 53px;
+    padding: 16px 14px;
+  }
+
+  .home-icon {
+    aspect-ratio: 1.12;
+    object-fit: contain;
+    object-position: center;
+    width: 18px;
+  }
+
+  .home-text {
+    margin-top: 6px;
+  }
+
+  .footer-nav {
+    display: flex;
+    margin-top: -42px;
+    width: 100%;
+    flex-direction: column;
+    color: #fff;
+    text-align: center;
+    padding: 2px 10px;
+    font:
+      400 12px Noto Sans KR,
+      sans-serif;
+  }
+
+  .funding-check {
+    z-index: 10;
+    display: flex;
+    width: 52px;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .funding-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 16px;
+    align-self: center;
+  }
+
+  .invitation-link {
+    align-self: end;
+    margin: -18px 82px 0 0;
+  }
+
+  .mypage-link {
+    align-self: end;
+    z-index: 10;
+    margin-top: -10px;
+  }
+
+  .transfer-check {
+    align-self: start;
+    margin: -9px 0 0 77px;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .bottom-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .bottom-nav {
+    z-index: 10;
+    display: flex;
+    margin-top: -66px;
+    align-items: center;
+    width: calc(100% - 40px);
+    gap: 10px;
+    color: #fff;
+    text-align: center;
+    justify-content: space-between;
+    margin: 0 20px;
+  }
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 16px;
+  }
+
+  .nav-text {
+    margin-top: 4px;
+    font-size: 12px;
+  }
+
+  .nav-button {
+    background-color: #fff;
+    border: 0px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 72px;
+    height: 66px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+<!doctype html>
+<html lang="“en”">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final</title>
+  </head>
+  <body>
+    <section class="wedding-invitation-page">
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/0a11758a49f905cfb677cda47512c4fdd49ffccc4e9ed9313c520cd2b83f9a62?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+        alt="Wedding invitation header"
+        class="header-image" />
+      <div class="content-wrapper">
+        <div class="invitation-photo-wrapper">
+          <div class="invitation-photo">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/b01b291ab24f398d4377da140f076a1a840c2a98a8a9da812b623e3fe1b2ae3c?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+              alt="Wedding couple photo"
+              class="photo-main" />
+
+            <div class="invitation-photo2" role="img" aria-label="Decorative wedding photo">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets%2Fbdf847c5539d4c7fadbe6612961d1488%2F27f6b63d15ed4e989f88dec186a7b7d5"
+                class="responsive-image"
+                alt="Description of the image" />
+            </div>
+            <div class="invitation-photo3" role="img" aria-label="Decorative wedding photo">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets%2Fbdf847c5539d4c7fadbe6612961d1488%2F0458191b008f4d23a5e174c3c7779647"
+                class="photo-third"
+                alt="Description of the image" />
+            </div>
+          </div>
+        </div>
+        <div class="invitation-text">
+          <h2 class="invitation-title">사랑을 모으는 가장 특별한 방법,</h2>
+          <div class="invitation-cta">
+            <p class="cta-text">
+              <span>아직 제작한 청첩장이 없어요.</span>
+              <br />
+              <span style="color: #f7b500">나만의 청첩장</span>
+              <span>을 만들어봐요</span>
+            </p>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/f49904d3689272d4cef8c36616d9d80e9c35980dc6df98b30fb3c02049123b38?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+              alt=""
+              class="cta-icon" />
+          </div>
+        </div>
+      </div>
+      <nav class="bottom-container">
+        <nav class="bottom-nav">
+          <div class="nav-item">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e21e8d66ed688c3fac00cd41b94fd81e660a8a82b409afb138b9851b3c30bfb8?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+              alt=""
+              class="nav-icon" />
+            <span class="nav-text">펀딩 조회</span>
+          </div>
+          <div class="nav-item">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/78972447274b4c1a155f42276caad399a36a43d978b69ffc1e98e95bee8d591c?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+              alt=""
+              class="nav-icon" />
+            <span class="nav-text">송금 조회</span>
+          </div>
+          <button class="nav-button" aria-label="Add new item">
+            <img
+              src="https://velog.velcdn.com/images/kkaerrung/post/480ceb63-53a9-41b9-b7c7-e63c76cec526/image.png"
+              alt="홈 화면" />
+          </button>
+          <div class="nav-item">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/b2161d1276c9d7366314c1f461feddc32c0573f2efee342c4a23631d711ec626?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+              alt=""
+              class="nav-icon" />
+            <span class="nav-text">청첩장</span>
+          </div>
+          <div class="nav-item">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ad53375fe0529682966c746c7033c952032a259cf3a38d1389e2325d85a8bce?placeholderIfAbsent=true&apiKey=bdf847c5539d4c7fadbe6612961d1488"
+              alt=""
+              class="nav-icon" />
+            <span class="nav-text">마이페이지</span>
+          </div>
+        </nav>
+      </nav>
+    </section>
+  </body>
+</html>
